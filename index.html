@@ -112,6 +112,34 @@ tr.win td{background:var(--panel)}
 .names b{font-family:var(--display);font-size:34px;display:block;line-height:1}
 .names p{margin:8px 0 0;font-size:16px;color:var(--muted)}
 
+/* maps */
+.maps{display:grid;gap:36px;margin-top:32px}
+figure{margin:0}
+figcaption{max-width:70ch;margin-bottom:12px}
+.mapwrap{overflow-x:auto;border:1px solid var(--rule);border-radius:4px}
+.mapwrap svg{display:block;width:100%;min-width:660px;height:auto}
+svg .sea{fill:var(--paper)} svg .land{fill:var(--panel);stroke:var(--rule);stroke-width:1.2}
+svg .st{fill-opacity:.62;stroke:var(--panel);stroke-width:1.6;stroke-linejoin:round} svg .st.mn{fill-opacity:.3}
+svg .river{fill:none;stroke:var(--bronze);stroke-width:1.5;stroke-opacity:.55;stroke-linecap:round;stroke-linejoin:round}
+svg text{font-family:var(--body);fill:var(--ink);paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round}
+svg .hanl{font-family:var(--han);font-weight:700;font-size:24px} svg .en{font-size:12px;font-weight:600}
+svg .cap{font-size:11px} svg .mnl{font-size:11px;font-style:italic;fill:var(--muted)} svg .rv{font-size:10.5px;font-style:italic;fill:var(--bronze);stroke-width:2.5px}
+svg .dot{fill:var(--ink);stroke:var(--panel);stroke-width:1.2} svg .lead{stroke:var(--ink);stroke-width:1;fill:none}
+.legend{list-style:none;display:flex;flex-wrap:wrap;gap:8px 20px;padding:0;margin:20px 0 0;font-size:16px}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:7px;vertical-align:-2px;opacity:.8}
+.note{max-width:70ch;font-size:16px;color:var(--muted);margin:14px 0 0}
+/* states */
+.states{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:32px}
+.state{background:var(--panel);border-top:5px solid var(--c);border-radius:0 0 4px 4px;padding:18px 20px 16px;display:flex;flex-direction:column;gap:10px}
+.state header{display:flex;align-items:center;gap:14px}
+.state .han{font-size:44px;font-weight:700;line-height:1;color:var(--ink)}
+.state b{display:block;font-family:var(--display);font-size:28px;line-height:1.1}
+.state b .py{font-family:var(--body);font-size:16px;font-weight:400}
+.state .cap{font-size:15px;color:var(--muted)}
+.state p{margin:0;font-size:17px}
+.state .where{font-size:15px;color:var(--muted);letter-spacing:.02em}
+.state .end{margin-top:auto;padding-top:10px;border-top:1px solid var(--rule);font-weight:600;font-size:16px}
+
 footer{border-top:1px solid var(--rule);padding:32px 0 48px;color:var(--muted);font-size:16px}
 footer p{max-width:70ch;margin:0 0 10px}
 
@@ -132,10 +160,9 @@ footer p{max-width:70ch;margin:0 0 10px}
   <div class="wrap">
     <a class="brand" href="#top"><span class="seal" aria-hidden="true">史</span><b>SecretAncestorQin</b></a>
     <nav aria-label="Sections">
-      <a href="#episode-1">Episode 1</a>
-      <a href="#season-1">Season 1</a>
+      <a href="#before-qin">Before Qin</a>
+      <a href="#maps">Maps</a>
       <a href="#seven-states">The seven states</a>
-      <a href="#names">Saying the names</a>
     </nav>
   </div>
 </header>
@@ -146,121 +173,50 @@ footer p{max-width:70ch;margin:0 0 10px}
   <div class="hero">
     <div>
       <h1>Chinese history, <em>one story</em> at a time.</h1>
-      <p>SecretAncestorQin tells the history of China in short episodes, each built around one event and the handful of people who drove it. No background needed. We begin in 403&nbsp;BCE, when one great state broke into three and two and a half centuries of war began.</p>
+      <p>SecretAncestorQin introduces the history of China to readers with no background in it. We begin before the first empire: who ruled, where the great states lay, and how seven rival powers became one.</p>
       <div class="cta">
-        <a class="btn solid" href="#episode-1">Read episode 1</a>
-        <a class="btn line" href="#season-1">See all of season 1</a>
+        <a class="btn solid" href="#before-qin">Start with the background</a>
+        <a class="btn line" href="#maps">See the maps</a>
       </div>
     </div>
     <div class="vert" aria-hidden="true">戰國<small>　WARRING STATES</small></div>
   </div>
 
-  <section id="episode-1">
-    <p class="eyebrow">Season 1 · Episode 1</p>
-    <h2>Three families carve up Jin</h2>
-    <p class="lede">Jin was the strongest state in northern China. Its rulers lost it without a foreign invasion: their own ministers took it apart, and the king of all China signed off on the theft.</p>
-
+  <section id="before-qin">
+    <p class="eyebrow">Part 1 · Background</p>
+    <h2>China before the empire</h2>
+    <p class="lede">Historians call everything before 221&nbsp;BCE the pre-Qin period. It covers about eighteen centuries. Here is the short version, so the Warring States make sense when you reach them.</p>
     <div class="story">
-      <div class="when">c. 500 BCE<span>the setting</span></div>
-      <div class="what">
-        <h3>A duke with no power</h3>
-        <p>China was nominally one kingdom under the Zhou king, but real power sat with regional states. In Jin, power had slipped a level further down. The duke reigned, and a few great ministerial families ran the armies and the land. After decades of feuding, four families were left: Zhi, Zhao, Han and Wei. Zhi was the strongest.</p>
-      </div>
-
-      <div class="when">455 BCE<span>the demand</span></div>
-      <div class="what">
-        <h3>Zhi Yao asks for land</h3>
-        <p>The head of the Zhi family, Zhi Yao, demanded territory from each of the other three, in the duke's name. Han and Wei were afraid and paid. Zhao Xiangzi, head of the Zhao family, refused. Zhi Yao marched on him and forced Han and Wei to join the attack.</p>
-      </div>
-
-      <div class="when">455–453 BCE<span>the siege</span></div>
-      <div class="what">
-        <h3>The flood at Jinyang</h3>
-        <p>Zhao Xiangzi fell back to the walled city of Jinyang and held it for about two years. Zhi Yao dammed a river and flooded the city. With the defenders close to starving, Zhao sent an envoy out at night to the Han and Wei camps with one argument: when Zhao is gone, you are next.</p>
-        <p>They agreed. On the chosen night the three families broke the dam the other way and turned the water onto the Zhi camp. Zhi Yao was killed and his family wiped out.</p>
-      </div>
-
-      <div class="when">403 BCE<span>the recognition</span></div>
-      <div class="what">
-        <h3>The king makes it legal</h3>
-        <p>Zhao, Han and Wei divided the Zhi lands, then most of what the duke still held. For fifty years they were rulers in fact and ministers in name. In 403&nbsp;BCE King Weilie of Zhou ended the pretence and formally raised the three family heads to the rank of regional lord, equal to the duke they had robbed.</p>
-        <p>By the traditional count, the last scraps of Jin were divided in 376&nbsp;BCE and the state disappeared.</p>
-      </div>
-
-      <div class="when">Why it matters<span>the turning point</span></div>
-      <div class="what">
-        <h3>The rules stop applying</h3>
-        <p>Three of the seven great powers of the next era, Han, Zhao and Wei, were born here. The historian Sima Guang, writing 1,400 years later, chose this year to open his chronicle of China. His reason was that the king himself had rewarded men for overthrowing their lord. After that, nothing but force decided who ruled.</p>
-      </div>
+      <div class="when">c. 2070–1600 BCE<span>Xia 夏</span></div>
+      <div class="what"><h3>A dynasty on the edge of legend</h3><p>Later Chinese texts name the Xia as the first dynasty, founded by Yu, who tamed the floods. No writing from the period survives. Many archaeologists link the Xia to the Bronze Age site of Erlitou on the Yellow River, though the match is still argued over. The dates are traditional.</p></div>
+      <div class="when">c. 1600–1046 BCE<span>Shang 商</span></div>
+      <div class="what"><h3>Bronze and the first writing</h3><p>The Shang are the first dynasty confirmed by their own records. Their kings asked questions of their ancestors by cracking ox bones and turtle shells with heat, then carved the questions and answers onto them. These oracle bones are the oldest known Chinese writing, and the script is a direct ancestor of the one used today. Shang workshops cast ritual bronze vessels of a quality nobody else in the world matched at the time.</p></div>
+      <div class="when">1046–771 BCE<span>Western Zhou 西周</span></div>
+      <div class="what"><h3>The Mandate of Heaven</h3><p>The Zhou, a people from the west, overthrew the Shang. To justify it they offered an idea that shaped Chinese politics for three thousand years: Heaven gives the right to rule to a virtuous house and takes it away from a corrupt one. The Zhou kings could not govern so much land directly, so they handed out territories to relatives and allies, who ruled as hereditary lords and owed the king loyalty and troops.</p></div>
+      <div class="when">770–c. 453 BCE<span>Spring and Autumn 春秋</span></div>
+      <div class="what"><h3>The king fades, the lords compete</h3><p>In 771&nbsp;BCE invaders sacked the Zhou capital. The court moved east to Luoyi, modern Luoyang, and never recovered its strength. The king kept his title and his rituals. Real power passed to the regional states, which numbered well over a hundred at the start and swallowed one another steadily. The strongest lords took turns acting as protector of the realm. Confucius lived at the end of this period and spent his life arguing for a return to the old order.</p></div>
+      <div class="when">c. 453–221 BCE<span>Warring States 战国</span></div>
+      <div class="what"><h3>Seven powers, one survivor</h3><p>By now even the lords were being overthrown by their own ministers. Jin, the strongest state in the north, was carved up by three of its own ministerial families, and in 403&nbsp;BCE the Zhou king recognised them as lords. Seven large states were left, each with a king, a professional army and a bureaucracy. They fought for about two and a half centuries until Qin conquered the other six and founded the first empire in 221&nbsp;BCE.</p><p>Historians date the start of the period differently: 475, 453 and 403&nbsp;BCE are all in use. This site follows the story from the fall of the Zhi family in 453 to the royal recognition of 403.</p></div>
     </div>
-
-    <h3 style="font-size:28px;margin-top:8px">Who to remember</h3>
-    <div class="people">
-      <div class="person"><span class="han">智瑶</span><b>Zhi Yao <span class="py">Zhì Yáo</span></b><p>Head of the Zhi family. Strongest man in Jin, and the one who overreached.</p></div>
-      <div class="person"><span class="han">赵襄子</span><b>Zhao Xiangzi <span class="py">Zhào Xiāngzǐ</span></b><p>Head of the Zhao family. Refused the demand and survived the siege.</p></div>
-      <div class="person king"><span class="han">周威烈王</span><b>King Weilie of Zhou <span class="py">Zhōu Wēiliè Wáng</span></b><p>King of all China in title. Recognised the three families in 403&nbsp;BCE.</p></div>
-      <div class="person"><span class="han">魏斯 · 赵籍 · 韩虔</span><b>Wei Si, Zhao Ji, Han Qian</b><p>The three family heads who became lords. Grandsons' generation of the men at Jinyang.</p></div>
+  </section>
+  <section id="maps">
+    <p class="eyebrow">Part 2 · Maps</p>
+    <h2>Two maps, 170 years apart</h2>
+    <p class="lede">The first shows China as the Warring States begin. The second shows it just before Qin destroys Han in 230&nbsp;BCE, the first of the six conquests. Compare the grey-blue area in the west.</p>
+    <div class="maps">
+      <figure><figcaption><b>Around 403 BCE.</b> Seven large states and a ring of smaller ones. Wei, Han and Zhao have just been recognised. Qin is a second-rank power behind the mountains.</figcaption><div class="mapwrap"><svg viewBox="0 0 720 480" role="img" aria-labelledby="m1-t m1-d" xmlns="http://www.w3.org/2000/svg"><title id="m1-t">China around 403 BCE</title><desc id="m1-d">Schematic map. Qin is a modest state in the far west. Wei, Han and Zhao share the old lands of Jin in the centre and north. Chu fills the south, Qi the eastern peninsula, Yan the north-east. Smaller states such as Yue, Song, Lu, Zhongshan, Shu and Ba still exist.</desc><defs><clipPath id="m1-land"><path d="M720,66 L648,93 L666,42 L630,33 L588,63 L540,84 L531,93 L537,114 L567,132 L576,147 L600,138 L621,126 L672,138 L675,153 L627,165 L609,180 L585,198 L579,216 L609,234 L627,270 L651,300 L657,333 L615,349 L654,363 L657,384 L648,411 L621,423 L606,453 L591,480 L0,480 L0,0 L720,0 Z"/></clipPath></defs><rect width="720" height="480" class="sea"/><path d="M720,66 L648,93 L666,42 L630,33 L588,63 L540,84 L531,93 L537,114 L567,132 L576,147 L600,138 L621,126 L672,138 L675,153 L627,165 L609,180 L585,198 L579,216 L609,234 L627,270 L651,300 L657,333 L615,349 L654,363 L657,384 L648,411 L621,423 L606,453 L591,480 L0,480 L0,0 L720,0 Z" class="land"/><g clip-path="url(#m1-land)"><path d="M84,306 L159,294 L168,375 L90,390 Z" fill="#8a8f86" class="st mn"/><path d="M168,294 L258,294 L276,366 L180,402 L168,375 Z" fill="#8a8f86" class="st mn"/><path d="M264,282 L315,258 L366,252 L414,255 L453,252 L486,258 L510,237 L552,261 L561,294 L528,342 L495,390 L420,450 L330,462 L285,420 L279,345 Z" fill="#b5533c" class="st"/><path d="M561,294 L552,261 L576,207 L690,195 L690,450 L570,450 L540,375 L528,342 Z" fill="#8a8f86" class="st mn"/><path d="M135,195 L180,162 L255,174 L294,192 L297,213 L300,228 L288,252 L225,252 L150,243 Z" fill="#5a5f6b" class="st"/><path d="M294,192 L306,171 L354,171 L369,201 L348,222 L306,222 L297,213 Z" fill="#4f8f5b" class="st"/><path d="M399,195 L438,192 L456,201 L456,222 L432,237 L420,219 L396,210 Z" fill="#4f8f5b" class="st"/><path d="M348,222 L369,201 L387,174 L408,186 L399,195 L396,210 L387,231 L408,236 L405,252 L366,252 Z" fill="#c26a9a" class="st"/><path d="M318,93 L336,66 L408,60 L417,99 L417,129 L465,126 L468,171 L447,188 L438,192 L399,195 L408,186 L387,174 L354,171 L327,144 Z" fill="#c08a2e" class="st"/><path d="M417,99 L459,93 L465,126 L417,129 Z" fill="#8a8f86" class="st mn"/><path d="M444,84 L456,36 L555,21 L606,33 L606,90 L528,99 L486,102 L459,93 Z" fill="#3d7ea6" class="st"/><path d="M477,168 L489,126 L546,102 L690,114 L690,186 L588,204 L540,201 L519,180 Z" fill="#7a5ea8" class="st"/><path d="M492,183 L519,180 L540,201 L516,213 L489,204 Z" fill="#8a8f86" class="st mn"/><path d="M456,222 L489,210 L510,237 L486,258 L453,252 Z" fill="#8a8f86" class="st mn"/><path d="M114,180 L138,138 L204,78 L228,36 L330,51 L336,78 L315,135 L312,195 L309,222 L375,214 L411,210 L444,183 L468,144 L495,111 L531,98" class="river"/><path d="M165,222 L216,229 L267,228 L309,222" class="river"/><path d="M75,432 L138,396 L195,372 L252,336 L309,330 L339,339 L366,351 L393,375 L429,342 L477,366 L510,345 L552,318 L564,297 L585,294 L648,312" class="river"/><path d="M414,288 L480,282 L525,273 L558,264" class="river"/></g><text x="140" y="118" class="rv">Yellow River</text><text x="318" y="398" class="rv">Yangtze</text><text x="668" y="262" class="rv" text-anchor="middle">Yellow Sea</text><text x="590" y="118" class="rv" text-anchor="middle">Bohai</text><text x="606" y="333" class="mnl" text-anchor="middle">Yue 越</text><text x="441" y="111" class="mnl" text-anchor="middle">Zhongshan</text><text x="513" y="195" class="mnl" text-anchor="middle">Lu</text><text x="480" y="234" class="mnl" text-anchor="middle">Song</text><text x="123" y="336" class="mnl" text-anchor="middle">Shu 蜀</text><text x="216" y="336" class="mnl" text-anchor="middle">Ba 巴</text><text x="426" y="206" class="mnl" text-anchor="middle">Wei (east)</text><circle cx="222" cy="225" r="3" class="dot"/><text x="222" y="240" class="cap" text-anchor="middle">Yong</text><circle cx="336" cy="207" r="3" class="dot"/><text x="343" y="211" class="cap" text-anchor="start">Anyi</text><circle cx="405" cy="234" r="3" class="dot"/><text x="405" y="249" class="cap" text-anchor="middle">Yangzhai</text><circle cx="375" cy="126" r="3" class="dot"/><text x="375" y="141" class="cap" text-anchor="middle">Jinyang</text><circle cx="492" cy="63" r="3" class="dot"/><text x="492" y="78" class="cap" text-anchor="middle">Ji</text><circle cx="549" cy="156" r="3" class="dot"/><text x="556" y="160" class="cap" text-anchor="start">Linzi</text><circle cx="366" cy="348" r="3" class="dot"/><text x="366" y="363" class="cap" text-anchor="middle">Ying</text><circle cx="374" cy="219" r="3" class="dot"/><text x="374" y="212" class="cap" text-anchor="middle">Zhou king</text><circle cx="412" cy="225" r="3" class="dot"/><text x="420" y="229" class="cap" text-anchor="start">Zheng</text><circle cx="450" cy="189" r="3" class="dot"/><text x="457" y="193" class="cap" text-anchor="start">Wey</text><text x="207" y="204" class="hanl" text-anchor="middle">秦</text><text x="207" y="219" class="en" text-anchor="middle">Qin</text><text x="322" y="181" class="hanl" text-anchor="middle">魏</text><text x="322" y="196" class="en" text-anchor="middle">Wei</text><text x="378" y="241" class="hanl" text-anchor="middle">韩</text><text x="378" y="256" class="en" text-anchor="middle">Han</text><text x="372" y="102" class="hanl" text-anchor="middle">赵</text><text x="372" y="117" class="en" text-anchor="middle">Zhao</text><text x="528" y="48" class="hanl" text-anchor="middle">燕</text><text x="528" y="63" class="en" text-anchor="middle">Yan</text><text x="600" y="153" class="hanl" text-anchor="middle">齐</text><text x="600" y="168" class="en" text-anchor="middle">Qi</text><text x="399" y="312" class="hanl" text-anchor="middle">楚</text><text x="399" y="327" class="en" text-anchor="middle">Chu</text></svg></div></figure>
+      <figure><figcaption><b>Around 231 BCE.</b> The small states are gone. Qin holds the whole west, the Sichuan basin and the old Chu heartland, and has pushed a corridor east that cuts Zhao off from Wei. Han is a pocket around its capital.</figcaption><div class="mapwrap"><svg viewBox="0 0 720 480" role="img" aria-labelledby="m2-t m2-d" xmlns="http://www.w3.org/2000/svg"><title id="m2-t">China around 231 BCE</title><desc id="m2-d">Schematic map. Qin now covers the whole west and centre, from the northern loop of the Yellow River to south of the Yangtze, and reaches east between Zhao and Wei. Han is a small pocket around Xinzheng. Wei is reduced to the area around Daliang. Chu has been pushed east. Zhao, Yan and Qi hold the north and east.</desc><defs><clipPath id="m2-land"><path d="M720,66 L648,93 L666,42 L630,33 L588,63 L540,84 L531,93 L537,114 L567,132 L576,147 L600,138 L621,126 L672,138 L675,153 L627,165 L609,180 L585,198 L579,216 L609,234 L627,270 L651,300 L657,333 L615,349 L654,363 L657,384 L648,411 L621,423 L606,453 L591,480 L0,480 L0,0 L720,0 Z"/></clipPath></defs><rect width="720" height="480" class="sea"/><path d="M720,66 L648,93 L666,42 L630,33 L588,63 L540,84 L531,93 L537,114 L567,132 L576,147 L600,138 L621,126 L672,138 L675,153 L627,165 L609,180 L585,198 L579,216 L609,234 L627,270 L651,300 L657,333 L615,349 L654,363 L657,384 L648,411 L621,423 L606,453 L591,480 L0,480 L0,0 L720,0 Z" class="land"/><g clip-path="url(#m2-land)"><path d="M90,162 L195,132 L318,84 L387,99 L411,132 L411,168 L426,183 L471,177 L480,195 L447,202 L417,206 L405,218 L390,222 L387,237 L399,246 L396,249 L408,282 L417,315 L405,360 L375,390 L315,420 L255,435 L150,435 L75,405 L60,330 L75,240 Z" fill="#5a5f6b" class="st"/><path d="M411,132 L387,99 L318,84 L324,33 L435,24 L456,48 L450,81 L480,102 L486,123 L477,153 L471,177 L426,183 L411,168 Z" fill="#c08a2e" class="st"/><path d="M450,81 L456,48 L435,24 L570,6 L720,12 L720,105 L528,99 L480,102 Z" fill="#3d7ea6" class="st"/><path d="M477,153 L486,123 L534,102 L690,114 L690,192 L582,207 L528,213 L492,198 L480,195 L471,177 Z" fill="#7a5ea8" class="st"/><path d="M417,206 L447,202 L480,195 L492,198 L489,225 L462,243 L426,240 L420,219 L405,218 Z" fill="#4f8f5b" class="st"/><path d="M390,222 L405,218 L420,219 L426,240 L399,246 L387,237 Z" fill="#c26a9a" class="st"/><path d="M399,246 L426,240 L462,243 L489,225 L528,213 L582,207 L690,198 L690,480 L480,471 L405,435 L375,390 L405,360 L417,315 L408,282 L396,249 Z" fill="#b5533c" class="st"/><path d="M114,180 L138,138 L204,78 L228,36 L330,51 L336,78 L315,135 L312,195 L309,222 L375,214 L411,210 L444,183 L468,144 L495,111 L531,98" class="river"/><path d="M165,222 L216,229 L267,228 L309,222" class="river"/><path d="M75,432 L138,396 L195,372 L252,336 L309,330 L339,339 L366,351 L393,375 L429,342 L477,366 L510,345 L552,318 L564,297 L585,294 L648,312" class="river"/><path d="M414,288 L480,282 L525,273 L558,264" class="river"/></g><text x="140" y="118" class="rv">Yellow River</text><text x="318" y="398" class="rv">Yangtze</text><text x="668" y="262" class="rv" text-anchor="middle">Yellow Sea</text><text x="590" y="118" class="rv" text-anchor="middle">Bohai</text><circle cx="261" cy="231" r="3" class="dot"/><text x="261" y="246" class="cap" text-anchor="middle">Xianyang</text><circle cx="435" cy="162" r="3" class="dot"/><text x="442" y="166" class="cap" text-anchor="start">Handan</text><circle cx="492" cy="63" r="3" class="dot"/><text x="492" y="78" class="cap" text-anchor="middle">Ji</text><circle cx="549" cy="156" r="3" class="dot"/><text x="556" y="160" class="cap" text-anchor="start">Linzi</text><circle cx="429" cy="216" r="3" class="dot"/><text x="422" y="211" class="cap" text-anchor="end">Daliang</text><circle cx="411" cy="228" r="3" class="dot"/><path d="M411,228 L377,268" class="lead"/><text x="375" y="282" class="hanl" text-anchor="middle">韩</text><text x="375" y="296" class="en" text-anchor="middle">Han · Xinzheng</text><circle cx="504" cy="282" r="3" class="dot"/><text x="504" y="297" class="cap" text-anchor="middle">Shouchun</text><circle cx="366" cy="348" r="3" class="dot"/><text x="366" y="363" class="cap" text-anchor="middle">Ying (lost 278)</text><circle cx="375" cy="126" r="3" class="dot"/><text x="375" y="141" class="cap" text-anchor="middle">Taiyuan</text><circle cx="123" cy="339" r="3" class="dot"/><text x="123" y="354" class="cap" text-anchor="middle">Chengdu</text><text x="228" y="282" class="hanl" text-anchor="middle">秦</text><text x="228" y="297" class="en" text-anchor="middle">Qin</text><text x="408" y="63" class="hanl" text-anchor="middle">赵</text><text x="408" y="78" class="en" text-anchor="middle">Zhao</text><text x="558" y="42" class="hanl" text-anchor="middle">燕</text><text x="558" y="57" class="en" text-anchor="middle">Yan</text><text x="597" y="156" class="hanl" text-anchor="middle">齐</text><text x="597" y="171" class="en" text-anchor="middle">Qi</text><text x="462" y="218" class="hanl" text-anchor="middle">魏</text><text x="462" y="232" class="en" text-anchor="middle">Wei</text><text x="510" y="342" class="hanl" text-anchor="middle">楚</text><text x="510" y="357" class="en" text-anchor="middle">Chu</text></svg></div></figure>
     </div>
-
-    <blockquote>
-      <span class="han">初命晋大夫魏斯、赵籍、韩虔为诸侯。</span>
-      “For the first time, the Jin ministers Wei Si, Zhao Ji and Han Qian were appointed regional lords.”
-      <cite>Sima Guang, <i>Zizhi Tongjian</i> (1084 CE), the first line of the chronicle. Translation ours.</cite>
-    </blockquote>
+    <ul class="legend">
+      <li><i style="background:#5a5f6b"></i>Qin</li><li><i style="background:#4f8f5b"></i>Wei</li><li><i style="background:#c26a9a"></i>Han</li><li><i style="background:#c08a2e"></i>Zhao</li><li><i style="background:#3d7ea6"></i>Yan</li><li><i style="background:#7a5ea8"></i>Qi</li><li><i style="background:#b5533c"></i>Chu</li><li><i style="background:#8a8f86"></i>Smaller states</li>
+    </ul>
+    <p class="note">These are schematic drawings made for this site. Borders moved almost every year and the sources often disagree, so treat every line as approximate. Dots mark capitals and other cities named in the text. The Yellow River is shown on its ancient lower course, which ran north to the Bohai Sea.</p>
   </section>
-
-  <section id="season-1">
-    <p class="eyebrow">Season 1 · 403–221 BCE</p>
-    <h2>The Warring States in twelve episodes</h2>
-    <p class="lede">From the break-up of Jin to the first unified empire. Episode 1 is published on this page. The rest are planned and will appear here as they are written.</p>
-    <ol class="eps">
-      <li><span class="n">01</span><div><b>Three families carve up Jin</b><span class="d">How a great state was dismantled from inside</span></div><span class="pill now">Read now</span></li>
-      <li><span class="n">02</span><div><b>Wei reforms first</b><span class="d">Li Kui and the first modern state</span></div><span class="pill">Planned</span></li>
-      <li><span class="n">03</span><div><b>Sun Bin and Pang Juan</b><span class="d">Two classmates, two armies, one ambush at Maling</span></div><span class="pill">Planned</span></li>
-      <li><span class="n">04</span><div><b>Shang Yang remakes Qin</b><span class="d">The laws that built a war machine</span></div><span class="pill">Planned</span></li>
-      <li><span class="n">05</span><div><b>Alliances for sale</b><span class="d">Su Qin, Zhang Yi and the diplomacy of the age</span></div><span class="pill">Planned</span></li>
-      <li><span class="n">06</span><div><b>Trousers and horses</b><span class="d">King Wuling of Zhao copies the nomads</span></div><span class="pill">Planned</span></li>
-      <li><span class="n">07</span><div><b>A hundred schools</b><span class="d">What Confucians, Mohists, Daoists and Legalists argued about</span></div><span class="pill">Planned</span></li>
-      <li><span class="n">08</span><div><b>The jade and the general</b><span class="d">Lin Xiangru, Lian Po and Zhao's last good years</span></div><span class="pill">Planned</span></li>
-      <li><span class="n">09</span><div><b>Changping</b><span class="d">The battle that broke Zhao</span></div><span class="pill">Planned</span></li>
-      <li><span class="n">10</span><div><b>The merchant and the boy king</b><span class="d">Lü Buwei and the rise of Ying Zheng</span></div><span class="pill">Planned</span></li>
-      <li><span class="n">11</span><div><b>The assassin</b><span class="d">Jing Ke's attempt on the king of Qin</span></div><span class="pill">Planned</span></li>
-      <li><span class="n">12</span><div><b>Qin swallows six states</b><span class="d">Ten years to unify China</span></div><span class="pill">Planned</span></li>
-    </ol>
-  </section>
-
   <section id="seven-states">
-    <p class="eyebrow">Reference</p>
+    <p class="eyebrow">Part 3 · The players</p>
     <h2>The seven states</h2>
-    <p class="lede">Seven powers dominate the period. Six of them end the same way. Keep this table open while you read.</p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>State</th><th>Name</th><th>Where</th><th>Main capital</th><th>Conquered by Qin</th></tr></thead>
-        <tbody>
-          <tr><td class="h">韩</td><td>Han <span class="py">Hán</span></td><td>Centre, the smallest</td><td>Xinzheng</td><td class="num">230 BCE</td></tr>
-          <tr><td class="h">赵</td><td>Zhao <span class="py">Zhào</span></td><td>North, facing the steppe</td><td>Handan</td><td class="num">228 BCE</td></tr>
-          <tr><td class="h">魏</td><td>Wei <span class="py">Wèi</span></td><td>Centre, on the Yellow River</td><td>Daliang</td><td class="num">225 BCE</td></tr>
-          <tr><td class="h">楚</td><td>Chu <span class="py">Chǔ</span></td><td>South, the largest</td><td>Ying</td><td class="num">223 BCE</td></tr>
-          <tr><td class="h">燕</td><td>Yan <span class="py">Yān</span></td><td>Far north-east</td><td>Ji (near modern Beijing)</td><td class="num">222 BCE</td></tr>
-          <tr><td class="h">齐</td><td>Qi <span class="py">Qí</span></td><td>East coast, the richest</td><td>Linzi</td><td class="num">221 BCE</td></tr>
-          <tr class="win"><td class="h">秦</td><td>Qin <span class="py">Qín</span></td><td>Far west, behind the mountain passes</td><td>Xianyang</td><td>The conqueror</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="lede" style="font-size:16px">Han, Zhao and Wei are the three families of episode 1. Dates are for the fall of each capital; Zhao's last holdout fell in 222&nbsp;BCE.</p>
-  </section>
-
-  <section id="names">
-    <p class="eyebrow">Before you start</p>
-    <h2>Saying the names</h2>
-    <p class="lede">Chinese names are written here in pinyin, the standard romanisation. Four letters trip up most English speakers.</p>
-    <div class="names">
-      <div><b>Q</b><p>Like <i>ch</i> in “cheese”. <b style="display:inline;font:inherit;font-weight:600">Qin</b> sounds like “chin”.</p></div>
-      <div><b>X</b><p>Like <i>sh</i> in “she”. <b style="display:inline;font:inherit;font-weight:600">Xianyang</b> starts “shyen”.</p></div>
-      <div><b>Zh</b><p>Like <i>j</i> in “judge”. <b style="display:inline;font:inherit;font-weight:600">Zhao</b> sounds like “jow”.</p></div>
-      <div><b>C</b><p>Like <i>ts</i> in “cats”. <b style="display:inline;font:inherit;font-weight:600">Cao</b> sounds like “tsow”.</p></div>
-    </div>
-    <p class="lede">Family names come first. In <b style="color:var(--ink)">Zhao Xiangzi</b>, Zhao is the family. Rulers are usually known by titles given after death, such as King Weilie, so the name you read was never used to their face.</p>
+    <p class="lede">Each of the seven had its own character, and the differences decided who survived. They are listed here starting with the eventual winner.</p>
+    <div class="states"><article class="state" style="--c:#5a5f6b"><header><span class="han">秦</span><div><b>Qin <span class="py">Qín</span></b><span class="cap">Capital: Xianyang</span></div></header><p class="where">Far west, in the Wei River valley behind mountain passes</p><p>Other states looked down on Qin as half-barbarian. From 356&nbsp;BCE the minister Shang Yang rebuilt it around two things, farming and war: land and rank went to men who took enemy heads, and the old nobility lost its privileges. The result was the most disciplined state of the age.</p><p class="end">Conquered the other six between 230 and 221&nbsp;BCE.</p></article><article class="state" style="--c:#4f8f5b"><header><span class="han">魏</span><div><b>Wei <span class="py">Wèi</span></b><span class="cap">Capital: Anyi, later Daliang</span></div></header><p class="where">Centre, on both sides of the Yellow River</p><p>The first state to reform. Under Marquess Wen and his minister Li Kui, around 400&nbsp;BCE, Wei had the best army and the best administrators in China. Its position was its weakness: enemies on every side. Two defeats by Qi, at Guiling and Maling, ended its lead.</p><p class="end">Fell in 225&nbsp;BCE when Qin flooded Daliang.</p></article><article class="state" style="--c:#c26a9a"><header><span class="han">韩</span><div><b>Han <span class="py">Hán</span></b><span class="cap">Capital: Yangzhai, later Xinzheng</span></div></header><p class="where">Centre, wedged between Qin, Wei and Chu</p><p>The smallest of the seven and the most exposed. Han was known for its crossbows and for the administrative methods of its minister Shen Buhai. The philosopher Han Fei, whose writing shaped Qin government, was a Han prince.</p><p class="end">The first to fall, in 230&nbsp;BCE.</p></article><article class="state" style="--c:#c08a2e"><header><span class="han">赵</span><div><b>Zhao <span class="py">Zhào</span></b><span class="cap">Capital: Handan</span></div></header><p class="where">North, facing the steppe</p><p>In 307&nbsp;BCE King Wuling ordered his soldiers to dress like the nomads and fight from horseback, which gave Zhao the best cavalry in China. It became the one state able to meet Qin in open battle, until the disaster at Changping in 260&nbsp;BCE destroyed its army.</p><p class="end">Handan fell in 228&nbsp;BCE. A last remnant held out until 222.</p></article><article class="state" style="--c:#3d7ea6"><header><span class="han">燕</span><div><b>Yan <span class="py">Yān</span></b><span class="cap">Capital: Ji, near modern Beijing</span></div></header><p class="where">Far north-east</p><p>Remote and usually the weakest of the seven. Its great moment came in 284&nbsp;BCE, when its general Yue Yi led a coalition that overran almost all of Qi. Yan is best remembered for sending the assassin Jing Ke against the king of Qin in 227&nbsp;BCE.</p><p class="end">Conquered in 222&nbsp;BCE.</p></article><article class="state" style="--c:#7a5ea8"><header><span class="han">齐</span><div><b>Qi <span class="py">Qí</span></b><span class="cap">Capital: Linzi</span></div></header><p class="where">East coast, the Shandong peninsula</p><p>The richest state, living on salt, fish, iron and trade. Its capital Linzi was among the largest cities in the world, and its Jixia Academy paid scholars of every school to come and argue. Qi never fully recovered from the invasion of 284&nbsp;BCE and sat out the final wars.</p><p class="end">Surrendered without a fight in 221&nbsp;BCE, the last to go.</p></article><article class="state" style="--c:#b5533c"><header><span class="han">楚</span><div><b>Chu <span class="py">Chǔ</span></b><span class="cap">Capital: Ying, later Chen and Shouchun</span></div></header><p class="where">South, along the Yangtze and Huai rivers</p><p>The largest state by far, with its own gods, music and poetry. The northern states treated it as foreign. Its territory was vast but its nobles kept power the kings could never break. Qin took the capital Ying in 278&nbsp;BCE and Chu moved east. The poet Qu Yuan belongs to this state.</p><p class="end">Conquered in 223&nbsp;BCE by the Qin general Wang Jian.</p></article></div>
   </section>
 
 </div>
@@ -268,7 +224,7 @@ footer p{max-width:70ch;margin:0 0 10px}
 
 <footer>
   <div class="wrap">
-    <p><b style="color:var(--ink)">Sources for episode 1.</b> Sima Guang, <i>Zizhi Tongjian</i>, book 1. Sima Qian, <i>Shiji</i>, hereditary houses of Zhao, Wei and Han. <i>Zhanguo Ce</i>, stratagems of Zhao. Dates before 403 BCE follow the traditional chronology and are debated by historians.</p>
+    <p><b style="color:var(--ink)">Sources.</b> Sima Qian, <i>Shiji</i>. Sima Guang, <i>Zizhi Tongjian</i>. <i>Zhanguo Ce</i>. Maps are schematic drawings made for this site. Dates before 841 BCE are traditional estimates, and many later dates are debated by historians.</p>
     <p>SecretAncestorQin. Chinese history for readers with no background in it.</p>
   </div>
 </footer>
