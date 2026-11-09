@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SecretAncestorQin</title>
+<meta name="description" content="Chinese history for readers with no background in it: China before the first empire, two maps of the Warring States, and the seven rival powers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Serif+SC:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
@@ -140,6 +141,25 @@ svg .dot{fill:var(--ink);stroke:var(--panel);stroke-width:1.2} svg .lead{stroke:
 .state .where{font-size:15px;color:var(--muted);letter-spacing:.02em}
 .state .end{margin-top:auto;padding-top:10px;border-top:1px solid var(--rule);font-weight:600;font-size:16px}
 
+nav a[aria-current="page"]{border-color:var(--cinnabar);font-weight:600}
+nav.main a{font-size:18px}
+.subnav{border-bottom:1px solid var(--rule);background:var(--panel)}
+.subnav .wrap{display:flex;flex-wrap:wrap;gap:4px 22px;padding-top:9px;padding-bottom:9px;font-size:15px;align-items:baseline}
+.subnav span{color:var(--muted)}
+.subnav a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+.subnav a:hover{border-color:var(--cinnabar)}
+.pagehead{padding:48px 0 40px}
+.pagehead h1{font-size:clamp(40px,6vw,68px)}
+.pagehead p{max-width:62ch;margin:18px 0 0;font-size:20px}
+.dyn .what ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.dyn .what li a{display:inline-block;font-weight:600;font-size:19px}
+.dyn .what li span{display:block;font-size:16px;color:var(--muted)}
+.dyn .none{font-size:15px;color:var(--muted);font-style:italic;margin:6px 0 0}
+.story.dyn{grid-template-columns:230px minmax(0,1fr)}
+.story.dyn .when{font-size:23px}
+@media (max-width:720px){.story.dyn{grid-template-columns:1fr}}
+.crumb{font-size:16px;margin:0 0 14px}
+
 footer{border-top:1px solid var(--rule);padding:32px 0 48px;color:var(--muted);font-size:16px}
 footer p{max-width:70ch;margin:0 0 10px}
 
@@ -158,25 +178,23 @@ footer p{max-width:70ch;margin:0 0 10px}
 
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="#top"><span class="seal" aria-hidden="true">史</span><b>SecretAncestorQin</b></a>
-    <nav aria-label="Sections">
-      <a href="#before-qin">Before Qin</a>
-      <a href="#maps">Maps</a>
-      <a href="#seven-states">The seven states</a>
+    <a class="brand" href="index.html"><span class="seal" aria-hidden="true">史</span><b>SecretAncestorQin</b></a>
+    <nav class="main" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="chronicles.html">Chronicles</a>
     </nav>
   </div>
 </header>
-
+<div class="subnav"><div class="wrap"><span>On this page</span><a href="#before-qin">China before the empire</a><a href="#maps">Two maps</a><a href="#seven-states">The seven states</a></div></div>
 <main id="top">
 <div class="wrap">
-
   <div class="hero">
     <div>
       <h1>Chinese history, <em>one story</em> at a time.</h1>
       <p>SecretAncestorQin introduces the history of China to readers with no background in it. We begin before the first empire: who ruled, where the great states lay, and how seven rival powers became one.</p>
       <div class="cta">
         <a class="btn solid" href="#before-qin">Start with the background</a>
-        <a class="btn line" href="#maps">See the maps</a>
+        <a class="btn line" href="chronicles.html">Read the stories</a>
       </div>
     </div>
     <div class="vert" aria-hidden="true">戰國<small>　WARRING STATES</small></div>
@@ -196,7 +214,7 @@ footer p{max-width:70ch;margin:0 0 10px}
       <div class="when">770–c. 453 BCE<span>Spring and Autumn 春秋</span></div>
       <div class="what"><h3>The king fades, the lords compete</h3><p>In 771&nbsp;BCE invaders sacked the Zhou capital. The court moved east to Luoyi, modern Luoyang, and never recovered its strength. The king kept his title and his rituals. Real power passed to the regional states, which numbered well over a hundred at the start and swallowed one another steadily. The strongest lords took turns acting as protector of the realm. Confucius lived at the end of this period and spent his life arguing for a return to the old order.</p></div>
       <div class="when">c. 453–221 BCE<span>Warring States 战国</span></div>
-      <div class="what"><h3>Seven powers, one survivor</h3><p>By now even the lords were being overthrown by their own ministers. Jin, the strongest state in the north, was carved up by three of its own ministerial families, and in 403&nbsp;BCE the Zhou king recognised them as lords. Seven large states were left, each with a king, a professional army and a bureaucracy. They fought for about two and a half centuries until Qin conquered the other six and founded the first empire in 221&nbsp;BCE.</p><p>Historians date the start of the period differently: 475, 453 and 403&nbsp;BCE are all in use. This site follows the story from the fall of the Zhi family in 453 to the royal recognition of 403.</p></div>
+      <div class="what"><h3>Seven powers, one survivor</h3><p>By now even the lords were being overthrown by their own ministers. Jin, the strongest state in the north, was carved up by three of its own ministerial families, and in 403&nbsp;BCE the Zhou king recognised them as lords. <a href="partition-of-jin.html">Read the full story.</a> Seven large states were left, each with a king, a professional army and a bureaucracy. They fought for about two and a half centuries until Qin conquered the other six and founded the first empire in 221&nbsp;BCE.</p><p>Historians date the start of the period differently: 475, 453 and 403&nbsp;BCE are all in use. This site follows the story from the fall of the Zhi family in 453 to the royal recognition of 403.</p></div>
     </div>
   </section>
   <section id="maps">
