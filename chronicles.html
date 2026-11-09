@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chronicles | SecretAncestorQin</title>
-<meta name="description" content="Stories from Chinese history, filed by dynasty from the Xia to the Qing.">
+<meta name="description" content="Chinese history by dynasty, from the Xia to the Qing, with an introduction to each period and the stories set in it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Serif+SC:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
@@ -160,7 +160,34 @@ nav.main a{font-size:18px}
 @media (max-width:720px){.story.dyn{grid-template-columns:1fr}}
 .crumb{font-size:16px;margin:0 0 14px}
 
-footer{border-top:1px solid var(--rule);padding:32px 0 48px;color:var(--muted);font-size:16px}
+/* dropdown */
+header.site{position:relative;z-index:5}
+.dd{position:relative}
+.dd>a::after{content:" ▾";font-size:.8em;color:var(--muted)}
+.dd .menu{display:none;position:absolute;right:0;top:100%;padding-top:10px;width:min(660px,calc(100vw - 32px))}
+.dd .menu>div{background:var(--paper);border:1px solid var(--rule);border-top:3px solid var(--cinnabar);border-radius:0 0 6px 6px;box-shadow:0 12px 28px rgba(0,0,0,.18);padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+@media (hover:hover){.dd:hover .menu,.dd:focus-within .menu{display:block}}
+.dd .menu a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 10px;border:0;border-radius:4px;font-size:15.5px;line-height:1.3}
+.dd .menu a:hover,.dd .menu a:focus-visible{background:var(--panel)}
+.dd .menu a b{font-weight:600}
+.dd .menu a span{color:var(--muted);font-size:13.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.dd .menu a[aria-current="page"]{background:var(--panel);font-weight:400}
+@media (max-width:620px){.dd .menu>div{grid-template-columns:1fr}}
+/* period pages */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px 28px;background:var(--panel);border-left:4px solid var(--bronze);border-radius:0 4px 4px 0;padding:20px 24px;margin:0}
+.facts dt{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.facts dd{margin:2px 0 0;font-size:17px}
+.prose{max-width:66ch}
+.prose h3{font-size:30px;margin:34px 0 8px}
+.prose p{margin:0 0 14px}
+.slist{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:10px}
+.slist a{font-weight:600;font-size:19px}
+.slist span{display:block;font-size:16px;color:var(--muted)}
+.pn{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:44px;padding-top:20px;border-top:1px solid var(--rule);font-size:17px}
+.dyn .what h3 a{color:var(--ink);text-decoration-color:var(--rule)}
+.dyn .what h3 a:hover{text-decoration-color:var(--cinnabar)}
+.dyn .more{font-size:16px}
+border-top:1px solid var(--rule);padding:32px 0 48px;color:var(--muted);font-size:16px}
 footer p{max-width:70ch;margin:0 0 10px}
 
 @media (max-width:720px){
@@ -181,7 +208,7 @@ footer p{max-width:70ch;margin:0 0 10px}
     <a class="brand" href="index.html"><span class="seal" aria-hidden="true">史</span><b>SecretAncestorQin</b></a>
     <nav class="main" aria-label="Main">
       <a href="index.html">Home</a>
-      <a href="chronicles.html" aria-current="page">Chronicles</a>
+      <div class="dd"><a href="chronicles.html" aria-current="page" aria-haspopup="true">Chronicles</a><div class="menu"><div><a href="xia.html"><b>Xia <span class="han" style="color:inherit;font-size:inherit">夏</span></b><span>c. 2070–1600 BCE</span></a><a href="shang.html"><b>Shang <span class="han" style="color:inherit;font-size:inherit">商</span></b><span>c. 1600–1046 BCE</span></a><a href="western-zhou.html"><b>Western Zhou <span class="han" style="color:inherit;font-size:inherit">西周</span></b><span>1046–771 BCE</span></a><a href="spring-and-autumn.html"><b>Spring and Autumn <span class="han" style="color:inherit;font-size:inherit">春秋</span></b><span>770–c. 453 BCE</span></a><a href="warring-states.html"><b>Warring States <span class="han" style="color:inherit;font-size:inherit">战国</span></b><span>c. 453–221 BCE</span></a><a href="qin.html"><b>Qin <span class="han" style="color:inherit;font-size:inherit">秦</span></b><span>221–207 BCE</span></a><a href="han.html"><b>Han <span class="han" style="color:inherit;font-size:inherit">汉</span></b><span>202 BCE–220 CE</span></a><a href="three-kingdoms.html"><b>Three Kingdoms <span class="han" style="color:inherit;font-size:inherit">三国</span></b><span>220–280</span></a><a href="jin-northern-southern.html"><b>Jin and the Northern and Southern Dynasties <span class="han" style="color:inherit;font-size:inherit">晋 · 南北朝</span></b><span>266–589</span></a><a href="sui.html"><b>Sui <span class="han" style="color:inherit;font-size:inherit">隋</span></b><span>581–618</span></a><a href="tang.html"><b>Tang <span class="han" style="color:inherit;font-size:inherit">唐</span></b><span>618–907</span></a><a href="five-dynasties.html"><b>Five Dynasties and Ten Kingdoms <span class="han" style="color:inherit;font-size:inherit">五代十国</span></b><span>907–979</span></a><a href="song.html"><b>Song <span class="han" style="color:inherit;font-size:inherit">宋</span></b><span>960–1279</span></a><a href="yuan.html"><b>Yuan <span class="han" style="color:inherit;font-size:inherit">元</span></b><span>1271–1368</span></a><a href="ming.html"><b>Ming <span class="han" style="color:inherit;font-size:inherit">明</span></b><span>1368–1644</span></a><a href="qing.html"><b>Qing <span class="han" style="color:inherit;font-size:inherit">清</span></b><span>1644–1912</span></a></div></div></div>
     </nav>
   </div>
 </header>
@@ -190,27 +217,27 @@ footer p{max-width:70ch;margin:0 0 10px}
 <div class="wrap">
   <div class="pagehead">
     <p class="eyebrow">Chronicles</p>
-    <h1>Stories from every dynasty</h1>
-    <p>Each story covers one event and the people who drove it. They are filed here under the dynasty they belong to, in order of time. New stories are added as they are written.</p>
+    <h1>China, dynasty by dynasty</h1>
+    <p>Sixteen periods in order of time, from the legendary Xia to the last emperor. Each has a short introduction, and the stories set in that period are listed under it.</p>
   </div>
   <section style="padding-top:40px">
     <div class="story dyn">
-<div class="when">c. 2070–1600 BCE<span>Xia 夏</span></div><div class="what"><h3>The first dynasty of tradition</h3><p>Flood myths, the first hereditary kings, and the question of how much is history.</p><p class="none">No stories yet.</p></div>
-<div class="when">c. 1600–1046 BCE<span>Shang 商</span></div><div class="what"><h3>Oracle bones and bronze</h3><p>The first rulers known from their own writing.</p><p class="none">No stories yet.</p></div>
-<div class="when">1046–771 BCE<span>Western Zhou 西周</span></div><div class="what"><h3>The Mandate of Heaven</h3><p>A conquest, a new idea of kingship, and a realm shared out among relatives.</p><p class="none">No stories yet.</p></div>
-<div class="when">770–c. 453 BCE<span>Spring and Autumn 春秋</span></div><div class="what"><h3>Lords and hegemons</h3><p>A fading king, over a hundred states, and the age of Confucius.</p><p class="none">No stories yet.</p></div>
-<div class="when">c. 453–221 BCE<span>Warring States 战国</span></div><div class="what"><h3>Seven powers</h3><p>Reformers, strategists and philosophers in two and a half centuries of war.</p><ul><li><a href="partition-of-jin.html">Three families carve up Jin</a><span>453–403 BCE. How a great state was dismantled from inside, and why a later historian began his chronicle here.</span></li></ul></div>
-<div class="when">221–207 BCE<span>Qin 秦</span></div><div class="what"><h3>The first empire</h3><p>One script, one law, one wall, and a collapse within fifteen years.</p><p class="none">No stories yet.</p></div>
-<div class="when">202 BCE–220 CE<span>Han 汉</span></div><div class="what"><h3>Four centuries that set the pattern</h3><p>The Silk Road, the civil service, and the name most Chinese still use for themselves.</p><p class="none">No stories yet.</p></div>
-<div class="when">220–280<span>Three Kingdoms 三国</span></div><div class="what"><h3>Wei, Shu and Wu</h3><p>The most retold war in Chinese history.</p><p class="none">No stories yet.</p></div>
-<div class="when">266–589<span>Jin and the Northern and Southern Dynasties 晋 · 南北朝</span></div><div class="what"><h3>A divided China</h3><p>Invasion, migration south, and the arrival of Buddhism.</p><p class="none">No stories yet.</p></div>
-<div class="when">581–618<span>Sui 隋</span></div><div class="what"><h3>Reunification</h3><p>The Grand Canal and a dynasty that spent itself in one generation.</p><p class="none">No stories yet.</p></div>
-<div class="when">618–907<span>Tang 唐</span></div><div class="what"><h3>The cosmopolitan empire</h3><p>Poetry, the only woman to rule as emperor, and a rebellion that broke the peace.</p><p class="none">No stories yet.</p></div>
-<div class="when">907–979<span>Five Dynasties and Ten Kingdoms 五代十国</span></div><div class="what"><h3>Fragmentation</h3><p>Seventy years of short-lived courts.</p><p class="none">No stories yet.</p></div>
-<div class="when">960–1279<span>Song 宋</span></div><div class="what"><h3>Printing, gunpowder, paper money</h3><p>A rich and inventive state under constant pressure from the north.</p><p class="none">No stories yet.</p></div>
-<div class="when">1271–1368<span>Yuan 元</span></div><div class="what"><h3>Mongol rule</h3><p>Kublai Khan and China as part of a world empire.</p><p class="none">No stories yet.</p></div>
-<div class="when">1368–1644<span>Ming 明</span></div><div class="what"><h3>Walls and treasure fleets</h3><p>The Forbidden City, the voyages of Zheng He, and a slow decline.</p><p class="none">No stories yet.</p></div>
-<div class="when">1644–1912<span>Qing 清</span></div><div class="what"><h3>The last dynasty</h3><p>Manchu emperors, the largest borders, and the end of imperial China.</p><p class="none">No stories yet.</p></div>
+<div class="when">c. 2070–1600 BCE<span>Xia 夏</span></div><div class="what"><h3><a href="xia.html">The first dynasty of tradition</a></h3><p>Chinese tradition begins its list of dynasties with the Xia.</p><p class="more"><a href="xia.html">About the Xia period</a></p></div>
+<div class="when">c. 1600–1046 BCE<span>Shang 商</span></div><div class="what"><h3><a href="shang.html">Oracle bones and bronze</a></h3><p>The Shang are the first Chinese dynasty known from their own words.</p><p class="more"><a href="shang.html">About the Shang period</a></p></div>
+<div class="when">1046–771 BCE<span>Western Zhou 西周</span></div><div class="what"><h3><a href="western-zhou.html">The Mandate of Heaven</a></h3><p>The Zhou conquered the Shang and then had to explain why that was right.</p><p class="more"><a href="western-zhou.html">About the Western Zhou period</a></p></div>
+<div class="when">770–c. 453 BCE<span>Spring and Autumn 春秋</span></div><div class="what"><h3><a href="spring-and-autumn.html">Lords and hegemons</a></h3><p>With the Zhou king reduced to a figurehead, well over a hundred states competed, allied and absorbed one another.</p><p class="more"><a href="spring-and-autumn.html">About the Spring and Autumn period</a></p></div>
+<div class="when">c. 453–221 BCE<span>Warring States 战国</span></div><div class="what"><h3><a href="warring-states.html">Seven powers</a></h3><p>Seven large states fought for about two and a half centuries until one of them conquered the rest.</p><p class="more"><a href="warring-states.html">About the Warring States period</a></p><ul><li><a href="partition-of-jin.html">Three families carve up Jin</a><span>453–403 BCE. How a great state was dismantled from inside, and why a later historian began his chronicle here.</span></li></ul></div>
+<div class="when">221–207 BCE<span>Qin 秦</span></div><div class="what"><h3><a href="qin.html">The first empire</a></h3><p>The Qin dynasty lasted about fifteen years.</p><p class="more"><a href="qin.html">About the Qin period</a></p></div>
+<div class="when">202 BCE–220 CE<span>Han 汉</span></div><div class="what"><h3><a href="han.html">Four centuries that set the pattern</a></h3><p>The Han kept the Qin structure and softened its methods.</p><p class="more"><a href="han.html">About the Han period</a></p></div>
+<div class="when">220–280<span>Three Kingdoms 三国</span></div><div class="what"><h3><a href="three-kingdoms.html">Wei, Shu and Wu</a></h3><p>When the Han fell, three states divided China between them.</p><p class="more"><a href="three-kingdoms.html">About the Three Kingdoms period</a></p></div>
+<div class="when">266–589<span>Jin and the Northern and Southern Dynasties 晋 · 南北朝</span></div><div class="what"><h3><a href="jin-northern-southern.html">A divided China</a></h3><p>The Jin reunified China for a few decades, then lost the north.</p><p class="more"><a href="jin-northern-southern.html">About the Jin and the Northern and Southern Dynasties period</a></p></div>
+<div class="when">581–618<span>Sui 隋</span></div><div class="what"><h3><a href="sui.html">Reunification</a></h3><p>The Sui ended almost three centuries of division.</p><p class="more"><a href="sui.html">About the Sui period</a></p></div>
+<div class="when">618–907<span>Tang 唐</span></div><div class="what"><h3><a href="tang.html">The cosmopolitan empire</a></h3><p>Many Chinese regard the Tang as the high point of their civilisation.</p><p class="more"><a href="tang.html">About the Tang period</a></p></div>
+<div class="when">907–979<span>Five Dynasties and Ten Kingdoms 五代十国</span></div><div class="what"><h3><a href="five-dynasties.html">Fragmentation</a></h3><p>After the Tang collapsed, the north was ruled by five short dynasties in quick succession while about ten separate kingdoms held the south and the far north..</p><p class="more"><a href="five-dynasties.html">About the Five Dynasties and Ten Kingdoms period</a></p></div>
+<div class="when">960–1279<span>Song 宋</span></div><div class="what"><h3><a href="song.html">Printing, gunpowder, paper money</a></h3><p>The Song was militarily weaker than the Han or Tang and never controlled the whole north.</p><p class="more"><a href="song.html">About the Song period</a></p></div>
+<div class="when">1271–1368<span>Yuan 元</span></div><div class="what"><h3><a href="yuan.html">Mongol rule</a></h3><p>The Yuan was founded by Kublai Khan, grandson of Genghis Khan.</p><p class="more"><a href="yuan.html">About the Yuan period</a></p></div>
+<div class="when">1368–1644<span>Ming 明</span></div><div class="what"><h3><a href="ming.html">Walls and treasure fleets</a></h3><p>The Ming restored Chinese rule after the Mongols.</p><p class="more"><a href="ming.html">About the Ming period</a></p></div>
+<div class="when">1644–1912<span>Qing 清</span></div><div class="what"><h3><a href="qing.html">The last dynasty</a></h3><p>The Qing was founded by the Manchus, a people from the north-east.</p><p class="more"><a href="qing.html">About the Qing period</a></p></div>
     </div>
   </section>
 </div>

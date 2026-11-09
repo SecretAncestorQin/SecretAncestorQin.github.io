@@ -160,7 +160,34 @@ nav.main a{font-size:18px}
 @media (max-width:720px){.story.dyn{grid-template-columns:1fr}}
 .crumb{font-size:16px;margin:0 0 14px}
 
-footer{border-top:1px solid var(--rule);padding:32px 0 48px;color:var(--muted);font-size:16px}
+/* dropdown */
+header.site{position:relative;z-index:5}
+.dd{position:relative}
+.dd>a::after{content:" ▾";font-size:.8em;color:var(--muted)}
+.dd .menu{display:none;position:absolute;right:0;top:100%;padding-top:10px;width:min(660px,calc(100vw - 32px))}
+.dd .menu>div{background:var(--paper);border:1px solid var(--rule);border-top:3px solid var(--cinnabar);border-radius:0 0 6px 6px;box-shadow:0 12px 28px rgba(0,0,0,.18);padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+@media (hover:hover){.dd:hover .menu,.dd:focus-within .menu{display:block}}
+.dd .menu a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 10px;border:0;border-radius:4px;font-size:15.5px;line-height:1.3}
+.dd .menu a:hover,.dd .menu a:focus-visible{background:var(--panel)}
+.dd .menu a b{font-weight:600}
+.dd .menu a span{color:var(--muted);font-size:13.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.dd .menu a[aria-current="page"]{background:var(--panel);font-weight:400}
+@media (max-width:620px){.dd .menu>div{grid-template-columns:1fr}}
+/* period pages */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px 28px;background:var(--panel);border-left:4px solid var(--bronze);border-radius:0 4px 4px 0;padding:20px 24px;margin:0}
+.facts dt{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.facts dd{margin:2px 0 0;font-size:17px}
+.prose{max-width:66ch}
+.prose h3{font-size:30px;margin:34px 0 8px}
+.prose p{margin:0 0 14px}
+.slist{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:10px}
+.slist a{font-weight:600;font-size:19px}
+.slist span{display:block;font-size:16px;color:var(--muted)}
+.pn{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:44px;padding-top:20px;border-top:1px solid var(--rule);font-size:17px}
+.dyn .what h3 a{color:var(--ink);text-decoration-color:var(--rule)}
+.dyn .what h3 a:hover{text-decoration-color:var(--cinnabar)}
+.dyn .more{font-size:16px}
+border-top:1px solid var(--rule);padding:32px 0 48px;color:var(--muted);font-size:16px}
 footer p{max-width:70ch;margin:0 0 10px}
 
 @media (max-width:720px){
@@ -181,7 +208,7 @@ footer p{max-width:70ch;margin:0 0 10px}
     <a class="brand" href="index.html"><span class="seal" aria-hidden="true">史</span><b>SecretAncestorQin</b></a>
     <nav class="main" aria-label="Main">
       <a href="index.html" aria-current="page">Home</a>
-      <a href="chronicles.html">Chronicles</a>
+      <div class="dd"><a href="chronicles.html" aria-haspopup="true">Chronicles</a><div class="menu"><div><a href="xia.html"><b>Xia <span class="han" style="color:inherit;font-size:inherit">夏</span></b><span>c. 2070–1600 BCE</span></a><a href="shang.html"><b>Shang <span class="han" style="color:inherit;font-size:inherit">商</span></b><span>c. 1600–1046 BCE</span></a><a href="western-zhou.html"><b>Western Zhou <span class="han" style="color:inherit;font-size:inherit">西周</span></b><span>1046–771 BCE</span></a><a href="spring-and-autumn.html"><b>Spring and Autumn <span class="han" style="color:inherit;font-size:inherit">春秋</span></b><span>770–c. 453 BCE</span></a><a href="warring-states.html"><b>Warring States <span class="han" style="color:inherit;font-size:inherit">战国</span></b><span>c. 453–221 BCE</span></a><a href="qin.html"><b>Qin <span class="han" style="color:inherit;font-size:inherit">秦</span></b><span>221–207 BCE</span></a><a href="han.html"><b>Han <span class="han" style="color:inherit;font-size:inherit">汉</span></b><span>202 BCE–220 CE</span></a><a href="three-kingdoms.html"><b>Three Kingdoms <span class="han" style="color:inherit;font-size:inherit">三国</span></b><span>220–280</span></a><a href="jin-northern-southern.html"><b>Jin and the Northern and Southern Dynasties <span class="han" style="color:inherit;font-size:inherit">晋 · 南北朝</span></b><span>266–589</span></a><a href="sui.html"><b>Sui <span class="han" style="color:inherit;font-size:inherit">隋</span></b><span>581–618</span></a><a href="tang.html"><b>Tang <span class="han" style="color:inherit;font-size:inherit">唐</span></b><span>618–907</span></a><a href="five-dynasties.html"><b>Five Dynasties and Ten Kingdoms <span class="han" style="color:inherit;font-size:inherit">五代十国</span></b><span>907–979</span></a><a href="song.html"><b>Song <span class="han" style="color:inherit;font-size:inherit">宋</span></b><span>960–1279</span></a><a href="yuan.html"><b>Yuan <span class="han" style="color:inherit;font-size:inherit">元</span></b><span>1271–1368</span></a><a href="ming.html"><b>Ming <span class="han" style="color:inherit;font-size:inherit">明</span></b><span>1368–1644</span></a><a href="qing.html"><b>Qing <span class="han" style="color:inherit;font-size:inherit">清</span></b><span>1644–1912</span></a></div></div></div>
     </nav>
   </div>
 </header>
