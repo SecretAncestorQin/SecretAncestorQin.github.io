@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SecretAncestorQin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Serif+SC:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: a reading column beside a narrow margin rail of dates and Chinese characters, like an annotated chronicle. */
+  --paper:#edf0ea;      /* pale jade-grey */
+  --panel:#e1e6dd;
+  --ink:#171c19;        /* lacquer black */
+  --muted:#56605a;
+  --rule:#bcc5ba;
+  --bronze:#2c5a4c;     /* verdigris on old bronze */
+  --cinnabar:#a8281f;   /* seal red */
+  --on-accent:#f4f1e6;
+  --display:"Cormorant Garamond","Noto Serif SC",Georgia,"Times New Roman",serif;
+  --body:"Source Sans 3","Segoe UI",Helvetica,Arial,sans-serif;
+  --han:"Noto Serif SC","Songti SC","SimSun",serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#121614;--panel:#1b211e;--ink:#e6e9e2;--muted:#9aa59d;--rule:#33403a;
+    --bronze:#7fb8a4;--cinnabar:#e0685c;--on-accent:#121614;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121614;--panel:#1b211e;--ink:#e6e9e2;--muted:#9aa59d;--rule:#33403a;
+  --bronze:#7fb8a4;--cinnabar:#e0685c;--on-accent:#121614;color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6}
+a{color:var(--bronze)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--cinnabar);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.1;text-wrap:balance;margin:0}
+.han{font-family:var(--han)}
+.py{color:var(--muted);font-style:italic}
+
+/* header */
+header.site{border-bottom:1px solid var(--rule)}
+header.site .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px;padding-top:18px;padding-bottom:18px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.seal{width:40px;height:40px;background:var(--cinnabar);color:var(--on-accent);display:grid;place-items:center;font-family:var(--han);font-weight:700;font-size:22px;border-radius:4px}
+.brand b{font-family:var(--display);font-size:26px;font-weight:700;letter-spacing:.01em}
+nav{display:flex;flex-wrap:wrap;gap:6px 24px}
+nav a{color:var(--ink);text-decoration:none;font-size:16px;border-bottom:2px solid transparent;padding:2px 0}
+nav a:hover{border-color:var(--cinnabar)}
+
+/* hero */
+.hero{padding:56px 0 48px;display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:40px;align-items:start}
+.hero h1{font-size:clamp(44px,7vw,84px);letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--cinnabar)}
+.hero p{max-width:60ch;margin:22px 0 0;font-size:20px}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.btn{display:inline-block;padding:11px 20px;border-radius:4px;text-decoration:none;font-weight:600;font-size:17px;border:2px solid var(--bronze)}
+.btn.solid{background:var(--bronze);color:var(--on-accent)}
+.btn.line{color:var(--bronze)}
+.vert{writing-mode:vertical-rl;font-family:var(--han);font-weight:700;font-size:54px;line-height:1.25;color:var(--bronze);border-left:1px solid var(--rule);padding-left:24px;justify-self:end;letter-spacing:.08em}
+.vert small{font-size:16px;font-weight:500;color:var(--muted);letter-spacing:.2em}
+
+section{padding:56px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--cinnabar);font-weight:600;margin:0 0 10px}
+h2{font-size:clamp(32px,4.4vw,48px)}
+.lede{max-width:65ch;color:var(--muted);margin:14px 0 0}
+
+/* episode 1 */
+.story{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 40px;margin-top:36px}
+.story .when{font-family:var(--display);font-size:26px;font-weight:700;color:var(--bronze);font-variant-numeric:tabular-nums;padding-top:2px}
+.story .when span{display:block;font-family:var(--body);font-size:14px;font-weight:400;color:var(--muted);letter-spacing:.04em}
+.story .what{max-width:65ch;padding-bottom:28px}
+.story .what h3{font-size:28px;margin-bottom:8px}
+.story .what p{margin:0 0 12px}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:20px}
+.person{background:var(--panel);border-left:4px solid var(--bronze);padding:16px 18px;border-radius:0 4px 4px 0}
+.person.king{border-left-color:var(--cinnabar)}
+.person .han{font-size:26px;font-weight:700;display:block;line-height:1.3}
+.person b{display:block;font-size:17px}
+.person p{margin:6px 0 0;font-size:16px;color:var(--muted)}
+blockquote{margin:28px 0 0;padding:20px 24px;background:var(--panel);border-radius:4px;max-width:70ch}
+blockquote .han{font-size:22px;display:block;margin-bottom:8px}
+blockquote cite{display:block;margin-top:8px;font-size:15px;color:var(--muted);font-style:normal}
+
+/* season list */
+ol.eps{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 40px}
+ol.eps li{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--rule)}
+ol.eps .n{font-family:var(--display);font-size:26px;font-weight:700;color:var(--bronze);font-variant-numeric:tabular-nums}
+ol.eps b{display:block;font-weight:600}
+ol.eps span.d{display:block;font-size:16px;color:var(--muted)}
+.pill{font-size:13px;font-weight:600;padding:3px 10px;border-radius:99px;border:1px solid var(--rule);color:var(--muted);white-space:nowrap}
+.pill.now{background:var(--cinnabar);border-color:var(--cinnabar);color:var(--on-accent)}
+
+/* states table */
+.tablewrap{overflow-x:auto;margin-top:28px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:17px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:baseline}
+th{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.h{font-family:var(--han);font-size:26px;font-weight:700;color:var(--bronze)}
+td.num{font-variant-numeric:tabular-nums}
+tr.win td{background:var(--panel)}
+
+/* names */
+.names{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:28px}
+.names div{border-top:3px solid var(--bronze);padding-top:12px}
+.names b{font-family:var(--display);font-size:34px;display:block;line-height:1}
+.names p{margin:8px 0 0;font-size:16px;color:var(--muted)}
+
+footer{border-top:1px solid var(--rule);padding:32px 0 48px;color:var(--muted);font-size:16px}
+footer p{max-width:70ch;margin:0 0 10px}
+
+@media (max-width:720px){
+  body{font-size:17px}
+  .hero{grid-template-columns:1fr;padding-top:36px}
+  .vert{writing-mode:horizontal-tb;border-left:0;border-top:1px solid var(--rule);padding:16px 0 0;justify-self:start;font-size:36px}
+  .story{grid-template-columns:1fr}
+  .story .when{padding-top:0}
+  ol.eps li{grid-template-columns:36px minmax(0,1fr)}
+  ol.eps .pill{grid-column:2;justify-self:start}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="seal" aria-hidden="true">史</span><b>SecretAncestorQin</b></a>
+    <nav aria-label="Sections">
+      <a href="#episode-1">Episode 1</a>
+      <a href="#season-1">Season 1</a>
+      <a href="#seven-states">The seven states</a>
+      <a href="#names">Saying the names</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap">
+
+  <div class="hero">
+    <div>
+      <h1>Chinese history, <em>one story</em> at a time.</h1>
+      <p>SecretAncestorQin tells the history of China in short episodes, each built around one event and the handful of people who drove it. No background needed. We begin in 403&nbsp;BCE, when one great state broke into three and two and a half centuries of war began.</p>
+      <div class="cta">
+        <a class="btn solid" href="#episode-1">Read episode 1</a>
+        <a class="btn line" href="#season-1">See all of season 1</a>
+      </div>
+    </div>
+    <div class="vert" aria-hidden="true">戰國<small>　WARRING STATES</small></div>
+  </div>
+
+  <section id="episode-1">
+    <p class="eyebrow">Season 1 · Episode 1</p>
+    <h2>Three families carve up Jin</h2>
+    <p class="lede">Jin was the strongest state in northern China. Its rulers lost it without a foreign invasion: their own ministers took it apart, and the king of all China signed off on the theft.</p>
+
+    <div class="story">
+      <div class="when">c. 500 BCE<span>the setting</span></div>
+      <div class="what">
+        <h3>A duke with no power</h3>
+        <p>China was nominally one kingdom under the Zhou king, but real power sat with regional states. In Jin, power had slipped a level further down. The duke reigned, and a few great ministerial families ran the armies and the land. After decades of feuding, four families were left: Zhi, Zhao, Han and Wei. Zhi was the strongest.</p>
+      </div>
+
+      <div class="when">455 BCE<span>the demand</span></div>
+      <div class="what">
+        <h3>Zhi Yao asks for land</h3>
+        <p>The head of the Zhi family, Zhi Yao, demanded territory from each of the other three, in the duke's name. Han and Wei were afraid and paid. Zhao Xiangzi, head of the Zhao family, refused. Zhi Yao marched on him and forced Han and Wei to join the attack.</p>
+      </div>
+
+      <div class="when">455–453 BCE<span>the siege</span></div>
+      <div class="what">
+        <h3>The flood at Jinyang</h3>
+        <p>Zhao Xiangzi fell back to the walled city of Jinyang and held it for about two years. Zhi Yao dammed a river and flooded the city. With the defenders close to starving, Zhao sent an envoy out at night to the Han and Wei camps with one argument: when Zhao is gone, you are next.</p>
+        <p>They agreed. On the chosen night the three families broke the dam the other way and turned the water onto the Zhi camp. Zhi Yao was killed and his family wiped out.</p>
+      </div>
+
+      <div class="when">403 BCE<span>the recognition</span></div>
+      <div class="what">
+        <h3>The king makes it legal</h3>
+        <p>Zhao, Han and Wei divided the Zhi lands, then most of what the duke still held. For fifty years they were rulers in fact and ministers in name. In 403&nbsp;BCE King Weilie of Zhou ended the pretence and formally raised the three family heads to the rank of regional lord, equal to the duke they had robbed.</p>
+        <p>By the traditional count, the last scraps of Jin were divided in 376&nbsp;BCE and the state disappeared.</p>
+      </div>
+
+      <div class="when">Why it matters<span>the turning point</span></div>
+      <div class="what">
+        <h3>The rules stop applying</h3>
+        <p>Three of the seven great powers of the next era, Han, Zhao and Wei, were born here. The historian Sima Guang, writing 1,400 years later, chose this year to open his chronicle of China. His reason was that the king himself had rewarded men for overthrowing their lord. After that, nothing but force decided who ruled.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:28px;margin-top:8px">Who to remember</h3>
+    <div class="people">
+      <div class="person"><span class="han">智瑶</span><b>Zhi Yao <span class="py">Zhì Yáo</span></b><p>Head of the Zhi family. Strongest man in Jin, and the one who overreached.</p></div>
+      <div class="person"><span class="han">赵襄子</span><b>Zhao Xiangzi <span class="py">Zhào Xiāngzǐ</span></b><p>Head of the Zhao family. Refused the demand and survived the siege.</p></div>
+      <div class="person king"><span class="han">周威烈王</span><b>King Weilie of Zhou <span class="py">Zhōu Wēiliè Wáng</span></b><p>King of all China in title. Recognised the three families in 403&nbsp;BCE.</p></div>
+      <div class="person"><span class="han">魏斯 · 赵籍 · 韩虔</span><b>Wei Si, Zhao Ji, Han Qian</b><p>The three family heads who became lords. Grandsons' generation of the men at Jinyang.</p></div>
+    </div>
+
+    <blockquote>
+      <span class="han">初命晋大夫魏斯、赵籍、韩虔为诸侯。</span>
+      “For the first time, the Jin ministers Wei Si, Zhao Ji and Han Qian were appointed regional lords.”
+      <cite>Sima Guang, <i>Zizhi Tongjian</i> (1084 CE), the first line of the chronicle. Translation ours.</cite>
+    </blockquote>
+  </section>
+
+  <section id="season-1">
+    <p class="eyebrow">Season 1 · 403–221 BCE</p>
+    <h2>The Warring States in twelve episodes</h2>
+    <p class="lede">From the break-up of Jin to the first unified empire. Episode 1 is published on this page. The rest are planned and will appear here as they are written.</p>
+    <ol class="eps">
+      <li><span class="n">01</span><div><b>Three families carve up Jin</b><span class="d">How a great state was dismantled from inside</span></div><span class="pill now">Read now</span></li>
+      <li><span class="n">02</span><div><b>Wei reforms first</b><span class="d">Li Kui and the first modern state</span></div><span class="pill">Planned</span></li>
+      <li><span class="n">03</span><div><b>Sun Bin and Pang Juan</b><span class="d">Two classmates, two armies, one ambush at Maling</span></div><span class="pill">Planned</span></li>
+      <li><span class="n">04</span><div><b>Shang Yang remakes Qin</b><span class="d">The laws that built a war machine</span></div><span class="pill">Planned</span></li>
+      <li><span class="n">05</span><div><b>Alliances for sale</b><span class="d">Su Qin, Zhang Yi and the diplomacy of the age</span></div><span class="pill">Planned</span></li>
+      <li><span class="n">06</span><div><b>Trousers and horses</b><span class="d">King Wuling of Zhao copies the nomads</span></div><span class="pill">Planned</span></li>
+      <li><span class="n">07</span><div><b>A hundred schools</b><span class="d">What Confucians, Mohists, Daoists and Legalists argued about</span></div><span class="pill">Planned</span></li>
+      <li><span class="n">08</span><div><b>The jade and the general</b><span class="d">Lin Xiangru, Lian Po and Zhao's last good years</span></div><span class="pill">Planned</span></li>
+      <li><span class="n">09</span><div><b>Changping</b><span class="d">The battle that broke Zhao</span></div><span class="pill">Planned</span></li>
+      <li><span class="n">10</span><div><b>The merchant and the boy king</b><span class="d">Lü Buwei and the rise of Ying Zheng</span></div><span class="pill">Planned</span></li>
+      <li><span class="n">11</span><div><b>The assassin</b><span class="d">Jing Ke's attempt on the king of Qin</span></div><span class="pill">Planned</span></li>
+      <li><span class="n">12</span><div><b>Qin swallows six states</b><span class="d">Ten years to unify China</span></div><span class="pill">Planned</span></li>
+    </ol>
+  </section>
+
+  <section id="seven-states">
+    <p class="eyebrow">Reference</p>
+    <h2>The seven states</h2>
+    <p class="lede">Seven powers dominate the period. Six of them end the same way. Keep this table open while you read.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>State</th><th>Name</th><th>Where</th><th>Main capital</th><th>Conquered by Qin</th></tr></thead>
+        <tbody>
+          <tr><td class="h">韩</td><td>Han <span class="py">Hán</span></td><td>Centre, the smallest</td><td>Xinzheng</td><td class="num">230 BCE</td></tr>
+          <tr><td class="h">赵</td><td>Zhao <span class="py">Zhào</span></td><td>North, facing the steppe</td><td>Handan</td><td class="num">228 BCE</td></tr>
+          <tr><td class="h">魏</td><td>Wei <span class="py">Wèi</span></td><td>Centre, on the Yellow River</td><td>Daliang</td><td class="num">225 BCE</td></tr>
+          <tr><td class="h">楚</td><td>Chu <span class="py">Chǔ</span></td><td>South, the largest</td><td>Ying</td><td class="num">223 BCE</td></tr>
+          <tr><td class="h">燕</td><td>Yan <span class="py">Yān</span></td><td>Far north-east</td><td>Ji (near modern Beijing)</td><td class="num">222 BCE</td></tr>
+          <tr><td class="h">齐</td><td>Qi <span class="py">Qí</span></td><td>East coast, the richest</td><td>Linzi</td><td class="num">221 BCE</td></tr>
+          <tr class="win"><td class="h">秦</td><td>Qin <span class="py">Qín</span></td><td>Far west, behind the mountain passes</td><td>Xianyang</td><td>The conqueror</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede" style="font-size:16px">Han, Zhao and Wei are the three families of episode 1. Dates are for the fall of each capital; Zhao's last holdout fell in 222&nbsp;BCE.</p>
+  </section>
+
+  <section id="names">
+    <p class="eyebrow">Before you start</p>
+    <h2>Saying the names</h2>
+    <p class="lede">Chinese names are written here in pinyin, the standard romanisation. Four letters trip up most English speakers.</p>
+    <div class="names">
+      <div><b>Q</b><p>Like <i>ch</i> in “cheese”. <b style="display:inline;font:inherit;font-weight:600">Qin</b> sounds like “chin”.</p></div>
+      <div><b>X</b><p>Like <i>sh</i> in “she”. <b style="display:inline;font:inherit;font-weight:600">Xianyang</b> starts “shyen”.</p></div>
+      <div><b>Zh</b><p>Like <i>j</i> in “judge”. <b style="display:inline;font:inherit;font-weight:600">Zhao</b> sounds like “jow”.</p></div>
+      <div><b>C</b><p>Like <i>ts</i> in “cats”. <b style="display:inline;font:inherit;font-weight:600">Cao</b> sounds like “tsow”.</p></div>
+    </div>
+    <p class="lede">Family names come first. In <b style="color:var(--ink)">Zhao Xiangzi</b>, Zhao is the family. Rulers are usually known by titles given after death, such as King Weilie, so the name you read was never used to their face.</p>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b style="color:var(--ink)">Sources for episode 1.</b> Sima Guang, <i>Zizhi Tongjian</i>, book 1. Sima Qian, <i>Shiji</i>, hereditary houses of Zhao, Wei and Han. <i>Zhanguo Ce</i>, stratagems of Zhao. Dates before 403 BCE follow the traditional chronology and are debated by historians.</p>
+    <p>SecretAncestorQin. Chinese history for readers with no background in it.</p>
+  </div>
+</footer>
+
+</body>
+</html>
