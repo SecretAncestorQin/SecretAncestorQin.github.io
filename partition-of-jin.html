@@ -199,6 +199,29 @@ footer p{max-width:70ch;margin:0 0 10px}
   ol.eps li{grid-template-columns:36px minmax(0,1fr)}
   ol.eps .pill{grid-column:2;justify-self:start}
 }
+
+/* timeline */
+.tline{position:relative;margin-top:36px;padding-top:34px;--lab:300px}
+.tline .ticks{position:absolute;top:0;bottom:0;left:var(--lab);right:0;pointer-events:none}
+.tline .ticks i{position:absolute;top:26px;bottom:0;width:1px;background:var(--rule)}
+.tline .ticks i.z{background:var(--muted)}
+.tline .ticks span{position:absolute;top:-26px;left:0;transform:translateX(-50%);font-style:normal;font-size:13px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.tline .ticks i:first-child span{transform:none}
+.tline .ticks i:last-child span{transform:translateX(-100%)}
+.trow{position:relative;display:grid;grid-template-columns:var(--lab) minmax(0,1fr);align-items:center;text-decoration:none;color:var(--ink);border-top:1px solid var(--rule);min-height:50px}
+.trow:last-child{border-bottom:1px solid var(--rule)}
+.trow .tl{padding:8px 16px 8px 0;line-height:1.25}
+.trow .tl b{display:block;font-weight:600;font-size:17px}
+.trow .tl>span{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.trow .track{position:relative;height:22px}
+.trow .track i{position:absolute;top:0;bottom:0;min-width:5px;background:var(--bronze);border-radius:3px}
+.trow:hover{background:var(--panel)}
+.trow:hover .track i,.trow:focus-visible .track i{background:var(--cinnabar)}
+.trow:hover .tl b{text-decoration:underline}
+@media (max-width:720px){.tline{--lab:0px}.trow{grid-template-columns:1fr;padding:8px 0 10px}.trow .tl{padding:0 0 6px}.trow .track{height:14px}}
+
+footer{border-top:1px solid var(--rule);padding:32px 0 48px;color:var(--muted);font-size:16px}
+footer p{max-width:70ch;margin:0 0 10px}
 </style>
 </head>
 <body>
@@ -253,7 +276,7 @@ footer p{max-width:70ch;margin:0 0 10px}
 
 <footer>
   <div class="wrap">
-    <p><b style="color:var(--ink)">Sources.</b> Sima Qian, <i>Shiji</i>. Sima Guang, <i>Zizhi Tongjian</i>. <i>Zhanguo Ce</i>. Maps are schematic drawings made for this site. Dates before 841 BCE are traditional estimates, and many later dates are debated by historians.</p>
+    <p><b style="color:var(--ink)">Sources.</b> Sima Qian, <i>Shiji</i>. Sima Guang, <i>Zizhi Tongjian</i>. <i>Zhanguo Ce</i>. Dates before 841 BCE are traditional estimates, and many later dates are debated by historians.</p>
     <p>SecretAncestorQin. Chinese history for readers with no background in it.</p>
   </div>
 </footer>
